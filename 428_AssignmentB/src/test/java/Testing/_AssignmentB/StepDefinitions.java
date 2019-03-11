@@ -41,8 +41,10 @@ public class StepDefinitions {
 	private final String PHOTO2 = "asdf_smile.jpg";
 	private final String PHOTO3 = "Glitch_in_the_matrix.jpg";
 	private final String PHOTO4 = "trust-me-im-an-engineer.jpg";
+	private final String PHOTO5 = "Genital_Thunderstorm.png";
+	private final String PHOTO6 = "Hue-manatee.jpg";
 	private final String PHOTO_EXTRA = "its-dangerous-to-go-alone-shark.jpg";
-	private final String[] PHOTOS = {PHOTO1,PHOTO2,PHOTO3,PHOTO4};
+	private final String[] PHOTOS = {PHOTO1,PHOTO2,PHOTO3,PHOTO4,PHOTO5,PHOTO6};
 
 	private final String PATH = "C:\\Users\\Charles\\eclipse-workspace\\428_AssignmentB\\src\\test\\resources\\";
 	
