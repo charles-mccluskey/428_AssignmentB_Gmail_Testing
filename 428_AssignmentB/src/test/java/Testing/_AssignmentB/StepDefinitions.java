@@ -131,7 +131,8 @@ public class StepDefinitions {
 			driver.findElement(By.name("Filedata")).sendKeys(PATH+photo);
 			System.out.println("Image uploaded!");
 		}catch (Exception e) {
-			System.out.println("Error uploading image.");
+			driver.quit();
+			Assert.fail("Error uploading image.");
 		}
 	}
 	
@@ -262,11 +263,13 @@ public class StepDefinitions {
 				Assert.assertTrue(true);
 			}else {
 				System.out.println("Image not found when it should have been");
+				deleteEmail();
 				driver.quit();
 				Assert.fail();
 			}
 		}catch (Exception e) {
 			System.out.println("Image not found when it should have been");
+			deleteEmail();
 			driver.quit();
 			Assert.fail();
 		}
@@ -285,10 +288,12 @@ public class StepDefinitions {
 					.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@title='" + this.PHOTO_EXTRA + "']"))) !=null) {
 				System.out.println("Found second Image!");
 			}
+			deleteEmail();
 			driver.quit();
 			Assert.assertTrue(true);
 		}catch (Exception e) {
 			System.out.println("Images not found when it should have been");
+			deleteEmail();
 			driver.quit();
 			Assert.fail();
 		}	
@@ -303,21 +308,29 @@ public class StepDefinitions {
 				System.out.println(sentImage.getText());
 				System.out.println(photo);
 				System.out.println("Image successfully removed.");
+				deleteEmail();
 				driver.quit();
 				Assert.assertTrue(true);
 			}else {
 				System.out.println("Unsuccessful: Found image when it should not have been present.");
+				deleteEmail();
 				driver.quit();
 				Assert.fail();
 			}
 		}catch (Exception e) {
 			System.out.println("Image successfully removed.");
+			deleteEmail();
 			driver.quit();
 			Assert.assertTrue(true);
 		}
 	}
 	
 	//helper methods
+	private void deleteEmail() {//data-tooltip="Delete"
+		//WebElement delete = CURRENT_FOUND_EMAIL.findElement(By.xpath(".//li[@data-tooltip=\"Delete\"]"));
+		//delete.click();
+	}
+	
 	private void selectRandomPhoto() {
 		Random rng = new Random();
 		int index = (int) (rng.nextFloat() * 4);
