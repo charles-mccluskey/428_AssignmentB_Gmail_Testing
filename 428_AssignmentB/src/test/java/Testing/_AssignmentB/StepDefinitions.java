@@ -333,7 +333,7 @@ public class StepDefinitions {
 	
 	private void selectRandomPhoto() {
 		Random rng = new Random();
-		int index = (int) Math.round((rng.nextFloat() * 4));
+		int index = (int) (rng.nextFloat() * PHOTOS.length);
 		photo = PHOTOS[index];
 	}
 	
@@ -342,7 +342,7 @@ public class StepDefinitions {
         StringBuilder header = new StringBuilder();
         Random rng = new Random();
         while (header.length() < 15) { // length of the random string.
-            int index = (int) Math.round((rng.nextFloat() * CHARS.length()));
+            int index = (int) (rng.nextFloat() * CHARS.length());
             header.append(CHARS.charAt(index));
         }
         random_header = header.toString();
